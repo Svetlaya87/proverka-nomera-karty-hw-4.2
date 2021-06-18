@@ -3,10 +3,13 @@ function answer() {
 
     let arr= dataInput.value;
     arr=arr.split('');
-    let array=[];
+    let array4=[];
+    let array2=[];
+    let Maestro =[5018, 5020, 5038, 5893, 6304, 6759, 6761, 6762, 6763];
     let sumOddValues=0;
     let sumEvenValues=0;
     let paymentSystem=0;
+    let i=0;
     
 
     console.log(arr);
@@ -82,20 +85,38 @@ function answer() {
         if ( (sumEvenValues+sumOddValues)%10 ==0 ){ // если остаток от деления суммы элементов четных и нечетных массива =0, то все супер
 
             arr.reverse(); // переворачиваем массив обратно, т.е. в исходное положение
+            array4=arr.slice(0,4).map(currentValue => currentValue * 1).join('')*1;// первые 4 цифры карты
+            array2=arr.slice(0,2).map(currentValue => currentValue * 1).join('')*1; // первые 2 цифры карты
 
+            console.log(array4, array2);
 
+            let y = function(x){
+                for (let i=0; i<Maestro.length; i++){
+
+                    
+
+                        return array4 == Maestro[i];
+
+                    
+                    
+
+                    
+                }
+            };
             // определение платежных систем взято со стр 5 данного документа https://www.oschadbank.ua/sites/default/files/files/documents-2020/Instrukcziya.pdf  , но есть и другие определения
 
             if (arr[0]==4) {
                 paymentSystem='Платежная система Visa';
 
-            } else if (arr[0]==5) {
+            } else if ( (array2>=51 && array2<=55) || (array4>=2221 && array4<=2720) ) {
                 paymentSystem='Платежная система Mastercard';
 
-            } else if (arr[0]==6){
+            } else if ( array4== y){
                 paymentSystem='Платежная система Maestro';
+
             } else {
                 paymentSystem='Платежная система не определена';
+
             }
 
             Result.innerHTML = `Номер карты корректный. ${paymentSystem}`;
