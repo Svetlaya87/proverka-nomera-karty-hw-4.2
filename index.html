@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proverka nomera kart</title>
+
+    <link rel="stylesheet" href="./assets/bootstrap-5-css/bootstrap.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+
+    <script src="./assets/js/code.js"></script>
+</head>
+<body>
+
+    <div class="container mt-5 py-1">
+		
+		<h1 class="mt-5 mb-2 text-black fw-bold">Проверка валидации карты и определение платежной системы</h1>
+        <p class="mb-5 text-black"></p>
+	
+		<!-- Input Data Form -->
+		<div class='row row-cols-sm row-cols-1 my-5 g-0'>
+			<div class="form-group d-flex flex-row py-1">
+			        <label class="w-50" for="dataInput">Введите номер карты</label>
+			        <input
+
+                     oninput="answer()"
+                     type="text" 
+                     class="form-control" 
+                     id="dataInput" 
+                     
+                     min='1000000000'
+                     
+                     step="1"
+                     required
+                    
+                      
+                     
+                    >
+                    </input>
+
+                    
+
+
+			</div>
+
+                  
+
+            <div class="d-flex flex-row align-items-stretch justify-content-start">
+                    <div class="pe-3">
+                        <p class="my-5 text-black fw-bold">Результаты проверки: </p>
+                    </div>
+                    
+                    <output id="Result" class="my-5 text-black-50"></output>
+            </div>
+
+        </div> 
+        
+        
+
+       			
+
+		
+       
+        
+		
+		
+
+	</div>
+    
+</body>
+</html>
