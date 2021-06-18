@@ -90,20 +90,7 @@ function answer() {
 
             console.log(array4, array2);
 
-            let y = function(x){
-                for (let i=0; i<Maestro.length; i++){
-
-                    
-
-                        return array4 == Maestro[i];
-
-                    
-                    
-
-                    
-                }
-            };
-            // определение платежных систем взято со стр 5 данного документа https://www.oschadbank.ua/sites/default/files/files/documents-2020/Instrukcziya.pdf  , но есть и другие определения
+            // https://en.wikipedia.org/wiki/Payment_card_number
 
             if (arr[0]==4) {
                 paymentSystem='Платежная система Visa';
@@ -111,7 +98,7 @@ function answer() {
             } else if ( (array2>=51 && array2<=55) || (array4>=2221 && array4<=2720) ) {
                 paymentSystem='Платежная система Mastercard';
 
-            } else if ( array4== y){
+            } else if (  Maestro.indexOf(array4) != -1 ){
                 paymentSystem='Платежная система Maestro';
 
             } else {
