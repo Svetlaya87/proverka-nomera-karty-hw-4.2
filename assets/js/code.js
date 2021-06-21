@@ -6,6 +6,12 @@ function answer() {
     let array4=[];
     let array2=[];
     let Maestro =[5018, 5020, 5038, 5893, 6304, 6759, 6761, 6762, 6763];
+    let cardSystem = [
+        {name: 'Visa', val1:4, },
+        {name: 'Mastercard', val1:51, val2:55,  },
+        {name: 'Mastercard', val1:2221, val2:2720 },
+        {name: 'Maestro', val1: Maestro, }
+    ];
     let sumOddValues=0;
     let sumEvenValues=0;
     let paymentSystem=0;
@@ -92,14 +98,15 @@ function answer() {
 
             // https://en.wikipedia.org/wiki/Payment_card_number
 
-            if (arr[0]==4) {
-                paymentSystem='Платежная система Visa';
+            
+            if (arr[0]==cardSystem[0].val1) {
+                paymentSystem=`Платежная система ${cardSystem[0].name}`;
 
-            } else if ( (array2>=51 && array2<=55) || (array4>=2221 && array4<=2720) ) {
-                paymentSystem='Платежная система Mastercard';
+            } else if ( (array2>=cardSystem[1].val1 && array2<=cardSystem[1].val2) || (array4>=cardSystem[2].val1 && array4<=cardSystem[2].val2) ) {
+                paymentSystem=`Платежная система ${cardSystem[1].name}`;
 
-            } else if (  Maestro.indexOf(array4) != -1 ){
-                paymentSystem='Платежная система Maestro';
+            } else if (  cardSystem[3].val1.indexOf(array4) != -1 ){
+                paymentSystem=`Платежная система ${cardSystem[3].name}`;
 
             } else {
                 paymentSystem='Платежная система не определена';
